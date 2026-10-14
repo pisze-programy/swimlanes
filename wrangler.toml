@@ -10,7 +10,7 @@ run_worker_first = true
 
 [[kv_namespaces]]
 binding = "DIAGRAMS"
-id = "00000000000000000000000000000000"
+id = "2c092676918c40d7bf95add44aee9fce"
 
 [observability]
 enabled = true

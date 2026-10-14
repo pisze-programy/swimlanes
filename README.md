@@ -6,7 +6,7 @@ Sequence diagrams from text. Runs on Cloudflare Workers.
 
 ## Use
 
-- Live app: https://swimlanes.workers.dev
+- Live app: https://swimlanes.dev-4cb.workers.dev
 - Syntax: [docs/syntax.md](docs/syntax.md)
 - Examples: [examples](examples)
 
