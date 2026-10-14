@@ -28,3 +28,24 @@ describe("share codec", () => {
     expect(Array.from(base64UrlToBytes(bytesToBase64Url(bytes)))).toEqual(Array.from(bytes));
   });
 });
+
+describe("standard base64 read", () => {
+  const source = "title: Browser\nBrowser -> Order: Database\nOrder -->> Browser: BrowserOrderDatabase";
+  // Standard base64 of the raw DEFLATE of `source`. The public swimlanes.io app
+  // writes this alphabet. It holds "+", "/" and "=" padding.
+  const standard = "K8ksyUm1UnAqyi8vTi3igtIKunYK/kUpqUVWCi6JJYlJicWpXGC+gq6unR1MNVwbWAqmEAA=";
+
+  it("decodes a standard base64 payload", () => {
+    expect(standard).toContain("+");
+    expect(standard).toContain("/");
+    expect(standard).toContain("=");
+    expect(decodeDiagram(standard)).toBe(source);
+  });
+
+  it("decodes a mixed payload", () => {
+    const mixed = standard.replace("/", "_");
+    expect(mixed).toContain("+");
+    expect(mixed).toContain("_");
+    expect(decodeDiagram(mixed)).toBe(source);
+  });
+});

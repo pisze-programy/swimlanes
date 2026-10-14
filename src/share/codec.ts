@@ -13,6 +13,12 @@ const lookup = ((): Int8Array => {
   for (let index = 0; index < alphabet.length; index += 1) {
     table[alphabet.charCodeAt(index)] = index;
   }
+  // The read accepts the standard base64 alphabet too.
+  // The public swimlanes.io app writes "+" and "/".
+  // The encoder below keeps writing base64URL.
+  table[43] = 62; // "+"
+  table[47] = 63; // "/"
+  // A "=" is padding. It stays -1, so the loop ignores it.
   return table;
 })();
 
