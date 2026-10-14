@@ -67,6 +67,19 @@ test("downloads the diagram as png", async ({ page }) => {
   expect(download.suggestedFilename()).toBe("diagram.png");
 });
 
+test("copies the short link after save", async ({ page, context }) => {
+  await context.grantPermissions(["clipboard-read", "clipboard-write"]);
+  await page.goto("/");
+  await page.locator("#editor").fill("title: Copy\nP -> Q: hi");
+  await page.locator("#save").click();
+  await expect(page.locator("#status")).toHaveText(/saved/);
+  await expect.poll(() => page.url()).toContain("/d/");
+  await page.locator("#copy").click();
+  await expect(page.locator("#status")).toHaveText(/link copied/);
+  const copied = await page.evaluate(() => navigator.clipboard.readText());
+  expect(copied).toContain("/d/");
+});
+
 test("loads an example from the menu", async ({ page }) => {
   await page.goto("/");
   await page.locator("#examples").selectOption("login");

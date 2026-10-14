@@ -6,9 +6,9 @@ import { defaultSource, examples } from "./examples";
 import { createCanvasMeasure } from "./measure";
 import {
   copyText,
+  currentShareUrl,
   readHashSource,
   readShortId,
-  shareUrl,
   shortUrl,
   writeShareUrl,
   writeShortUrl,
@@ -105,6 +105,8 @@ async function bootstrap(): Promise<void> {
   document.fonts.ready.then(loadFonts).then(render).catch(() => undefined);
 
   saveButton.addEventListener("click", () => {
+    window.clearTimeout(timer);
+    render();
     status.textContent = "saving…";
     void saveDiagram(editor.value).then(async (id) => {
       if (id === undefined) {
@@ -118,7 +120,7 @@ async function bootstrap(): Promise<void> {
   });
 
   copyButton.addEventListener("click", () => {
-    void copyText(shareUrl(editor.value)).then((copied) => {
+    void copyText(currentShareUrl(editor.value)).then((copied) => {
       status.textContent = copied ? "link copied" : "copy failed";
     });
   });

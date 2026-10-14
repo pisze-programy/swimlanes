@@ -38,6 +38,17 @@ export function writeShortUrl(id: string): void {
   window.history.pushState(null, "", "/d/" + id);
 }
 
+/**
+ * The URL to copy. Uses the current address when it already carries the
+ * diagram (a share fragment or a short link). Otherwise builds a share URL.
+ */
+export function currentShareUrl(source: string): string {
+  if (window.location.hash.length > 1 || readShortId() !== undefined) {
+    return window.location.href;
+  }
+  return shareUrl(source);
+}
+
 export async function copyText(text: string): Promise<boolean> {
   try {
     await navigator.clipboard.writeText(text);
