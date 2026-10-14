@@ -1,0 +1,148 @@
+:root {
+  --bg: #ffffff;
+  --fg: #1f2328;
+  --muted: #57606a;
+  --border: #d8dee4;
+  --panel: #f6f8fa;
+  --accent: #0969da;
+  --mono: "Source Code Pro", "SFMono-Regular", Menlo, Consolas, monospace;
+  --sans: "Source Sans 3", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--sans);
+  color: var(--fg);
+  background: var(--bg);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 12px;
+  border-bottom: 1px solid var(--border);
+  background: var(--panel);
+}
+
+.brand {
+  font-weight: 700;
+  color: var(--fg);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.tools {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  flex-wrap: wrap;
+}
+
+button,
+select {
+  font: inherit;
+  font-size: 13px;
+  color: var(--fg);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+button:hover,
+select:hover {
+  border-color: var(--accent);
+}
+
+button:active {
+  background: var(--panel);
+}
+
+.status {
+  font-size: 12px;
+  color: var(--muted);
+  min-width: 0;
+}
+
+.split {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+#editor {
+  width: 42%;
+  min-width: 280px;
+  border: 0;
+  border-right: 1px dashed var(--border);
+  padding: 14px;
+  resize: none;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--fg);
+  background: var(--bg);
+  outline: none;
+  tab-size: 2;
+}
+
+.preview {
+  flex: 1;
+  overflow: auto;
+  padding: 16px;
+  background: var(--bg);
+}
+
+.preview svg {
+  display: block;
+  margin: 0 auto;
+  max-width: none;
+}
+
+.foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 12px;
+  border-top: 1px solid var(--border);
+  background: var(--panel);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.source {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.source:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 760px) {
+  .split {
+    flex-direction: column;
+  }
+  #editor {
+    width: 100%;
+    min-width: 0;
+    height: 40%;
+    border-right: 0;
+    border-bottom: 1px dashed var(--border);
+  }
+}

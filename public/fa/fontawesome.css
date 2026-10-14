@@ -1,0 +1,22 @@
+/* Font Awesome Free webfonts (SIL OFL 1.1). See LICENSE.txt. */
+@font-face {
+  font-family: "Font Awesome 7 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url("./fa-solid-900.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Font Awesome 7 Free";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("./fa-regular-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Font Awesome 7 Brands";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("./fa-brands-400.woff2") format("woff2");
+}

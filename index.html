@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>swimlanes</title>
+    <meta name="description" content="Sequence diagrams from text." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/fa/fontawesome.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Code+Pro:wght@400;500&display=swap"
+    />
+  </head>
+  <body>
+    <header class="bar">
+      <a class="brand" href="/">swimlanes</a>
+      <div class="tools">
+        <select id="examples" aria-label="Examples"></select>
+        <button id="save" type="button">Save</button>
+        <button id="copy" type="button">Copy link</button>
+        <button id="svg" type="button">SVG</button>
+        <button id="png" type="button">PNG</button>
+      </div>
+    </header>
+    <main class="split">
+      <textarea id="editor" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="Diagram source"></textarea>
+      <div id="preview" class="preview"></div>
+    </main>
+    <footer class="foot">
+      <span id="status" class="status" role="status" aria-live="polite"></span>
+      <a id="source" class="source" href="https://github.com/pisze-programy/swimlanes" target="_blank" rel="noopener">source</a>
+    </footer>
+    <script type="module" src="/src/app/main.ts"></script>
+  </body>
+</html>

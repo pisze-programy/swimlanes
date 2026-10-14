@@ -1,0 +1,16 @@
+name = "swimlanes"
+main = "worker/index.ts"
+compatibility_date = "2025-09-23"
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = true
+
+[[kv_namespaces]]
+binding = "DIAGRAMS"
+id = "00000000000000000000000000000000"
+
+[observability]
+enabled = true
